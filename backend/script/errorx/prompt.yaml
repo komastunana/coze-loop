@@ -1,0 +1,44 @@
+error_code:
+  # 1xxx
+  - name: ResourceNotFound
+    code: 1001
+    message: resource not found
+    no_affect_stability: true
+  - name: PromptVersionNotExist
+    code: 1002
+    message: prompt version not exist
+    no_affect_stability: true
+  - name: PromptUncommitted
+    code: 1003
+    message: prompt not committed
+    no_affect_stability: true
+  - name: TemplateParseError
+    code: 1004
+    message: template parse error
+    no_affect_stability: true
+  - name: TemplateRenderError
+    code: 1005
+    message: template render error
+    no_affect_stability: true
+  - name: UnsupportedTemplateType
+    code: 1006
+    message: unsupported template type
+    no_affect_stability: true
+  - name: PromptLabelUnAssociated
+    code: 1007
+    message: prompt label unassociated with commit version
+    no_affect_stability: true
+  # 2xxx
+  - name: PromptHubQPSLimit
+    code: 2001
+    message: request is limited, cause prompt hub qps of current space reached the upper limit
+    no_affect_stability: true
+  - name: PTaaSQPSLimit
+    code: 2002
+    message: request is limited, cause PTaaS qps of current space reached the upper limit
+    no_affect_stability: true
+  - name: RiskContentDetected
+    code: 5014
+    message: detected risk content in user input or model response
+    description: detected risk content in user input or model response
+    no_affect_stability: true
