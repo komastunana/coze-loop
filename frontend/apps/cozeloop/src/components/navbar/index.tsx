@@ -86,11 +86,11 @@ export function Navbar() {
           selectedKeys={selectedKeys}
           className="px-6 flex-1 !pr-[18px] pb-2"
         />
-        <Divider className="relative" />
+        {/* <Divider className="relative" />
         <div className="pt-4 pb-3 px-6 relative">
           <FooterMenus isCollapsed={isCollapsed} isHovered={isHovered} />
           <UserInfoSection isCollapsed={isCollapsed} />
-        </div>
+        </div> */}
       </Nav>
     </div>
   );

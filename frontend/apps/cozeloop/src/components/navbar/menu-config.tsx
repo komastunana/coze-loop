@@ -39,50 +39,50 @@ export interface MenuConfig {
 
 export function useMenuConfig() {
   const menuConfig: MenuConfig[] = [
-    {
-      itemKey: 'pe',
-      text: I18n.t('prompt_engineering'),
-      visible: ({ space }) => Boolean(space?.id),
-      items: [
-        {
-          itemKey: 'pe/prompts',
-          text: I18n.t('prompt_development'),
-          icon: <IconCozChat />,
-          selectedIcon: <IconCozChatFill className="coz-fg-plus" />,
-        },
-        {
-          itemKey: 'pe/playground',
-          text: 'Playground',
-          icon: <IconCozPlayCircle />,
-          selectedIcon: <IconCozPlayCircleFill className="coz-fg-plus" />,
-        },
-      ],
-    },
-    {
-      itemKey: 'evaluation',
-      text: I18n.t('evaluation'),
-      visible: ({ space }) => Boolean(space?.id),
-      items: [
-        {
-          itemKey: 'evaluation/datasets',
-          text: I18n.t('evaluation_set'),
-          icon: <IconCozDatabase />,
-          selectedIcon: <IconCozDatabaseFill className="coz-fg-plus" />,
-        },
-        {
-          itemKey: 'evaluation/evaluators',
-          text: I18n.t('evaluator'),
-          icon: <IconCozLightbulb />,
-          selectedIcon: <IconCozLightbulbFill className="coz-fg-plus" />,
-        },
-        {
-          itemKey: 'evaluation/experiments',
-          text: I18n.t('experiment'),
-          icon: <IconCozDashboard />,
-          selectedIcon: <IconCozDashboardFill className="coz-fg-plus" />,
-        },
-      ],
-    },
+    // {
+    //   itemKey: 'pe',
+    //   text: I18n.t('prompt_engineering'),
+    //   visible: ({ space }) => Boolean(space?.id),
+    //   items: [
+    //     {
+    //       itemKey: 'pe/prompts',
+    //       text: I18n.t('prompt_development'),
+    //       icon: <IconCozChat />,
+    //       selectedIcon: <IconCozChatFill className="coz-fg-plus" />,
+    //     },
+    //     {
+    //       itemKey: 'pe/playground',
+    //       text: 'Playground',
+    //       icon: <IconCozPlayCircle />,
+    //       selectedIcon: <IconCozPlayCircleFill className="coz-fg-plus" />,
+    //     },
+    //   ],
+    // },
+    // {
+    //   itemKey: 'evaluation',
+    //   text: I18n.t('evaluation'),
+    //   visible: ({ space }) => Boolean(space?.id),
+    //   items: [
+    //     {
+    //       itemKey: 'evaluation/datasets',
+    //       text: I18n.t('evaluation_set'),
+    //       icon: <IconCozDatabase />,
+    //       selectedIcon: <IconCozDatabaseFill className="coz-fg-plus" />,
+    //     },
+    //     {
+    //       itemKey: 'evaluation/evaluators',
+    //       text: I18n.t('evaluator'),
+    //       icon: <IconCozLightbulb />,
+    //       selectedIcon: <IconCozLightbulbFill className="coz-fg-plus" />,
+    //     },
+    //     {
+    //       itemKey: 'evaluation/experiments',
+    //       text: I18n.t('experiment'),
+    //       icon: <IconCozDashboard />,
+    //       selectedIcon: <IconCozDashboardFill className="coz-fg-plus" />,
+    //     },
+    //   ],
+    // },
     {
       itemKey: 'observation',
       text: I18n.t('observation'),
@@ -96,19 +96,19 @@ export function useMenuConfig() {
         },
       ],
     },
-    {
-      itemKey: 'tag',
-      text: I18n.t('tag'),
-      visible: ({ space }) => Boolean(space?.id),
-      items: [
-        {
-          itemKey: 'tag/tag',
-          text: I18n.t('tag_management'),
-          icon: <IconCozTag />,
-          selectedIcon: <IconCozTagFill className="coz-fg-plus" />,
-        },
-      ],
-    },
+    // {
+    //   itemKey: 'tag',
+    //   text: I18n.t('tag'),
+    //   visible: ({ space }) => Boolean(space?.id),
+    //   items: [
+    //     {
+    //       itemKey: 'tag/tag',
+    //       text: I18n.t('tag_management'),
+    //       icon: <IconCozTag />,
+    //       selectedIcon: <IconCozTagFill className="coz-fg-plus" />,
+    //     },
+    //   ],
+    // },
   ];
 
   return menuConfig;

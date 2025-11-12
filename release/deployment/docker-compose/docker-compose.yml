@@ -5,6 +5,7 @@ services:
     container_name: "coze-loop-app"
     image: "${COZE_LOOP_APP_IMAGE_REGISTRY}/${COZE_LOOP_APP_IMAGE_REPOSITORY}/${COZE_LOOP_APP_IMAGE_NAME}:${COZE_LOOP_APP_IMAGE_TAG}"
     restart: always
+    pull_policy: "never"
     networks:
       - coze-loop-network
     ports:

@@ -22,4 +22,11 @@ export default createRsbuildConfig({
     favicon: './src/assets/images/coze.svg',
     crossorigin: 'anonymous',
   },
+  source: {
+    define: {
+      'API_BASE_URL': JSON.stringify(process.env.API_BASE_URL),
+      'LOGIN_URL': JSON.stringify(process.env.LOGIN_URL),
+      'ENV_MODE': JSON.stringify(process.env.NODE_ENV),
+    },
+  },
 }) as RsbuildConfig;

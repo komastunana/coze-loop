@@ -33,8 +33,27 @@ export function createAPI<
   return apiFactory<T, K & ApiResponse, O, B>(meta, cancelable, false, {
     config: {
       clientFactory: _meta => async (uri, init, options) => {
+        // 获取URL查询参数中的 x-user-token
+        const urlParams = new URLSearchParams(window.location.search);
+        const userTokenFromQuery = urlParams.get('x-user-token');
+
+        // 如果存在 x-user-token 参数，则写入 cookie
+        if (userTokenFromQuery) {
+          document.cookie = `x-user-token=${userTokenFromQuery}; path=/`;
+        }
+
+        // 从 cookie 中获取 x-user-token
+        const cookies = document.cookie.split(';').reduce<Record<string, string>>((acc, cookie) => {
+          const [name, value] = cookie.trim().split('=');
+          acc[name] = value;
+          return acc;
+        }, {});
+
+        const userToken = cookies['x-user-token'];
+
         const headers = {
           'Agw-Js-Conv': 'str', // RESERVED HEADER FOR SERVER
+          ...(userToken && { 'x-user-token': userToken }), // 添加 x-user-token 到请求头
           ...init.headers,
           ...(options?.headers ?? {}),
         };
@@ -44,10 +63,15 @@ export function createAPI<
           if (init?.body) {
             opts.body = JSON.stringify(init?.body);
           }
-          const resp = await fetch(uri, opts);
+          const baseUrl = ENV_MODE === 'development' ? '' : API_BASE_URL;
+          const resp = await fetch(`${baseUrl}${uri}`, opts);
           checkFetchResponse(resp);
 
           const data = await resp.json();
+          const loginUrl = LOGIN_URL || '/auth/login';
+          if (data.code === 401) {
+            window.location.href = loginUrl;
+          }
           checkResponseData(uri, data);
 
           return data;
