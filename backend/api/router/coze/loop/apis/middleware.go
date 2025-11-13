@@ -26,6 +26,7 @@ func rootMw(handler *apis.APIHandler) []app.HandlerFunc {
 func _apiMw(handler *apis.APIHandler) []app.HandlerFunc {
 	return []app.HandlerFunc{
 		middleware.SessionMW(session.NewSessionService(), louser.NewLocalUserService(handler)),
+		middleware.TokenAuthMW(), // ✅ 新增的 Token 验证中间件
 	}
 }
 
