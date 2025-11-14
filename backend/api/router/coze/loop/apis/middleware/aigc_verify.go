@@ -75,7 +75,7 @@ func TokenAuthMW() app.HandlerFunc {
         }
 
         if tr.Code != 200 {
-            c.JSON(http.StatusUnauthorized, map[string]interface{}{
+            c.JSON(http.StatusOK, map[string]interface{}{
                 "code": 401,
                 "error": "get current user failed",
                 "msg": "",
